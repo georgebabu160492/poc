@@ -7,7 +7,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./styles.css";
 import TagsInput from "react-tagsinput";
 import { MultiSelect } from "react-multi-select-component";
-import beUrl from "../../constants";
 
 
 // State creation and handling is done below since we use same form for create and update.
@@ -39,7 +38,7 @@ const AddProduct = ({ label }) => {
   }
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`${beUrl}/api/project/get_form_iniital_data/`)
+    fetch(`http://127.0.0.1:8000/api/project/get_form_iniital_data/`)
     // if API hit is successful then following sections get executed.
     .then((response) => {
       return response.json();
@@ -118,7 +117,7 @@ const AddProduct = ({ label }) => {
     };
     if (label.includes("Edit")) {
       // IF condition is true then EDIT product API gets triggereed.
-      fetch(`${beUrl}/api/project/${ID}`, {
+      fetch(`http://127.0.0.1:8000/api/project/${ID}`, {
         method: "PUT",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
@@ -138,7 +137,7 @@ const AddProduct = ({ label }) => {
         });
     } else {
       // IF condition is false then CREATE product API gets triggered.
-      fetch(`${beUrl}/api/project`, {
+      fetch(`http://127.0.0.1:8000/api/project`, {
         method: "POST",
         mode: "cors",
         headers: { "Content-Type": "application/json" },

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Header/index";
 import Button from "../Button/index";
 import "./styles.css";
-import beUrl from "../../constants";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -21,7 +20,7 @@ const Home = () => {
     // Delete functionality.
     if (window.confirm("Do you want to continue with this deletion?")) {
       setIsDeleted(true);
-      fetch(`${beUrl}/api/project/${id}`, {
+      fetch(`http://127.0.0.1:8000/api/project/${id}`, {
         method: "DELETE",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
@@ -44,7 +43,7 @@ const Home = () => {
   };
 
   const fetchProductsData = () => {
-    fetch(`${beUrl}/api/project`)
+    fetch(`http://127.0.0.1:8000/api/project`)
       // if API hit is successful then following sections get executed.
       .then((response) => {
         return response.json();

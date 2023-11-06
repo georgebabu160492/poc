@@ -2,10 +2,7 @@ import api
 from fastapi import FastAPI, status
 from database import SessionLocal, engine, Base
 from starlette.middleware.cors import CORSMiddleware
-from sample_data.load_sample_data import (
-    load_employee_sample_data,
-    load_project_sample_data,
-)
+from sample_data.load_sample_data import load_data
 
 
 Base.metadata.create_all(bind=engine)
@@ -20,13 +17,6 @@ def db():
     finally:
         db.close()
 
-
-def load_data():
-    load_employee_sample_data()
-    load_project_sample_data()
-
-
-load_data()  # uncomment and run this the first time to load initial data
 
 app.add_middleware(
     CORSMiddleware,
@@ -45,3 +35,6 @@ async def main_route():
     An API to do health check of the application.
     """
     return {"message": "All good!"}
+
+
+load_data()  # to load inital sample data from json files

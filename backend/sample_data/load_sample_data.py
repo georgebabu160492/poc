@@ -23,3 +23,15 @@ def load_project_sample_data():
         db.add(project)
     db.commit()
     return {"message": "Project Data loaded successfully."}
+
+
+def load_data():
+    db = SessionLocal()
+    created_project = created_employee = None
+    projects = db.query(ProjectDetail).all()
+    if not projects:
+        created_project = load_project_sample_data()
+    employees = db.query(EmployeeDetail).all()
+    if not employees:
+        created_employee = load_employee_sample_data()
+    print(created_employee, created_project)

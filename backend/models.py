@@ -13,10 +13,6 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 
-# from sqlalchemy import event
-# from sqlalchemy.orm import Session
-# from models import ProjectAllocation, ActivityLog
-
 
 association_table = Table(
     "association_table",

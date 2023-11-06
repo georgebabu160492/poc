@@ -1,0 +1,53 @@
+/* Styles required just for header component is added here. */
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-table td,
+.products-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.products-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.products-table td:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+
+.products-table td:nth-child(2) {
+  width: 10%;
+}
+
+.products-table td:nth-child(3) {
+  width: 10%;
+}
+
+.products-table td:nth-child(4) {
+  width: 10%;
+}
+
+.products-table td:nth-child(5) {
+  width: 15%;
+}
+
+.products-table td:nth-child(6) {
+  width: 10%;
+}
+
+.products-table td:nth-child(7) {
+  width: 10%;
+}
+
+.products-table td:nth-child(8) {
+  width: 10%;
+}
+
+.products-table td:nth-child(9) {
+  width: 20%;
+}

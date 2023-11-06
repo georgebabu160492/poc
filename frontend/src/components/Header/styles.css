@@ -1,0 +1,8 @@
+/* This file contains css only for header component. */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}

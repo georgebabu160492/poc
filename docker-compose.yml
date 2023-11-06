@@ -1,0 +1,29 @@
+version: '3'
+services:
+  api:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    volumes:
+      - ./backend/:/code/
+  ui:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/:/app/
+    command: bash -c "cd /app && yarn install && yarn start"
+    depends_on:
+      - api
+  database:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: sample_db_1
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
